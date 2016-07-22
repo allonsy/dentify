@@ -1,0 +1,24 @@
+{
+  "name": "dentify",
+  "version": "1.0.0",
+  "description": "a universal identity platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lsc src/index.ls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allonsy/dentify.git"
+  },
+  "author": "lahack2016",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/allonsy/dentify/issues"
+  },
+  "homepage": "https://github.com/allonsy/dentify#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "o-tools-livescript": "^1.1.2"
+  }
+}
