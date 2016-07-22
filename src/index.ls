@@ -1,4 +1,6 @@
-express = require 'express'
+require! {
+  'express' : express
+}
 
 
 app = express!
