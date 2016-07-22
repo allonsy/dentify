@@ -4,8 +4,6 @@ require! {
 
 
 app = express!
-
-app.get '/', (req, res) ->
-  res.send 'Hello World'
-
-app.listen 3000
+  ..get '/', (req, res) ->
+    res.send 'Hello World'
+  ..listen 3000
