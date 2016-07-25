@@ -1,17 +1,15 @@
 require! {
-  'express' : express
   'fs' : fs
-  'https': https
+  'tls' : tls
 }
-
-app = express!
 
 options =
   key: fs.readFileSync 'server.key'
   cert: fs.readFileSync 'server.crt'
   secureProtocol: 'TLSv1_2_method'
 
-https.createServer(options, app).listen 3000
+server = tls.createServer options, (socket) ->
+  console.log socket.getPeerCertificate()
 
-app.get '/', (req, res) ->
-  res.send 'Hello World'
+server.listen 3000 ->
+  console.log 'listening on port 3000'
