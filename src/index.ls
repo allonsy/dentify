@@ -1,6 +1,7 @@
 require! {
   'fs' : fs
   'tls' : tls
+  'pg' : pg
 }
 
 options =
@@ -13,3 +14,18 @@ server = tls.createServer options, (socket) ->
 
 server.listen 3000 ->
   console.log 'listening on port 3000'
+
+client = new pg.Client();
+
+# connect to our database (uses evironment parameters to connect to local db)
+client.connect (err) ->
+  if err
+    throw err
+
+  # execute query
+  client.query 'SELECT * FROM users', (err ,result) ->
+    console.log result.rows
+
+    # disconnect the client
+    client.end (err) ->
+      if err then throw err;
