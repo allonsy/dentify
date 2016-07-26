@@ -19,8 +19,7 @@ client = new pg.Client();
 
 # connect to our database (uses evironment parameters to connect to local db)
 client.connect (err) ->
-  if err
-    throw err
+  if err then return
 
   # execute query
   client.query 'SELECT * FROM users', (err ,result) ->
@@ -28,4 +27,4 @@ client.connect (err) ->
 
     # disconnect the client
     client.end (err) ->
-      if err then throw err;
+      if err then return
