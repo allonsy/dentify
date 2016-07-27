@@ -1,7 +1,11 @@
 require! {
+  'express'
   'fs' : fs
   'tls' : tls
+  'jade'
+  'path'
   'pg' : pg
+  './controllers/home': HomeController
 }
 
 options =
@@ -31,3 +35,10 @@ client.connect (err) ->
     # disconnect the client
     client.end (err) ->
       if err then return
+
+app = express!
+  ..set 'views', (path.join __dirname, 'views')
+  ..set 'view engine', 'jade'
+  ..get '/', HomeController.index
+  ..listen 8000 ->
+    console.log "HTTP server listening at port 8000"
