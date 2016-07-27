@@ -1,6 +1,6 @@
 class IndexController
 
-  ({@send}) ->
+  ->
 
 
   index: (req, res) ->

@@ -19,23 +19,15 @@ start-web-server = (done) ->
     ..listen 8000
 
 
-start-database = (done) ~>
-  @client = new pg.Client()
-    ..connect (err) ->
-      if err
-        console.log red "Database error"
-        done!
-      else
-        console.log "#{green 'Database'} online"
-        done!
-
-
-# @client.query 'SELECT * FROM users', (err ,result) ->
-#   console.log result.rows
-
-#     # disconnect the client
-# @client.end (err) ->
-#   if err then return
+query-database = (query) ->
+  client.connect (err) ->
+    if err
+      return
+    client.query query, (err ,result) ->
+      console.log result.rows
+      client.end (err) ->
+        if err
+          return
 
 
 start-tls-server = (done) ~>
@@ -56,7 +48,7 @@ start-tls-server = (done) ~>
 
 
 
+client = new pg.Client!
 start-web-server N ->
-  start-database N ->
-    start-tls-server N ->
-      console.log green 'All systems go'
+  start-tls-server N ->
+    console.log green 'All systems go'
