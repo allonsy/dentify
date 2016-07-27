@@ -1,0 +1,2 @@
+#!/bin/bash
+openssl pkcs12 -export -out $1.pfx -inkey pki/private/$1.key -in pki/issued/$1.crt -certfile pki/ca.crt

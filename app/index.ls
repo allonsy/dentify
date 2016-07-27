@@ -39,12 +39,10 @@ start-database = (done) ~>
 
 
 start-tls-server = (done) ~>
-  certfile = fs.readFileSync 'server.crt'
-
   options =
     key: fs.readFileSync 'server.key'
-    cert: certfile
-    ca: certfile
+    cert: fs.readFileSync 'server.crt'
+    ca: fs.readFileSync 'ca.crt'
     secureProtocol: 'TLSv1_2_method'
     requestCert: true
     rejectUnauthorized: false
