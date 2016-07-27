@@ -3,10 +3,10 @@ webpack = require 'webpack'
 webpackDevMiddleware = require 'webpack-dev-middleware'
 
 
-app = express()
+app = express!
 app.listen 8000
 
-app.use webpackDevMiddleware(webpack require './webpack.config')
+app.use webpackDevMiddleware webpack require './webpack-config.ls'
 
 app.get '/', (req, res) ->
   res.render 'main'

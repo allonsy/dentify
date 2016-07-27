@@ -1,30 +1,21 @@
-require! {
-  'path'
-}
+path = require 'path'
 
 
 module.exports =
 
-  entry:
-    main: path.resolve 'app/client/index.ls'
-
+  entry: path.join __dirname, 'client/index.ls'
 
   output:
-    path: path.resolve __dirname, '../public/assets'
+    path: path.join __dirname, 'public'
     publicPath: '/'
     filename: 'bundle.js'
-
-    # Output file paths to comments (These get compiled away in production)
     pathinfo: yes
-
 
   resolve:
     extensions:
       * ''
-      * '.js'
       * '.ls'
-      * '.styl'
-
+      * '.js'
 
   module:
     loaders:
