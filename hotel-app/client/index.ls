@@ -1,12 +1,6 @@
-require!{
-  'react'
-  'react-dom'
-}
-
-{div} = react.DOM
-
-Root = (props) ->
-  div {}, 'HomePage'
+react = require 'react'
+reactDom = require 'react-dom'
+Root = require './components/root'
 
 
 reactDom.render(
