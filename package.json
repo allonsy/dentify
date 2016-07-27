@@ -18,8 +18,7 @@
   },
   "homepage": "https://github.com/allonsy/dentify#readme",
   "dependencies": {
-    "o-tools-livescript": "^1.1.2",
-    "pg": "^6.0.3",
+    "async": "^2.0.1",
     "body-parser": "1.15.0",
     "chalk": "1.1.1",
     "cookie-parser": "1.4.1",
@@ -28,17 +27,20 @@
     "express": "4.13.4",
     "exprestive": "1.1.0",
     "jade": "1.11.0",
+    "livescript": "1.4.0",
     "livescript-loader": "0.1.5",
     "method-override": "2.3.5",
     "morgan": "1.7.0",
     "nitroglycerin": "1.1.1",
+    "o-tools": "0.1.4",
+    "o-tools-livescript": "^1.1.2",
+    "pg": "^6.0.3",
     "rails-delegate": "0.6.0",
     "serve-favicon": "2.3.0",
     "style-loader": "0.13.0",
     "stylus-loader": "1.5.1",
     "webpack": "1.12.14",
-    "webpack-dev-server": "1.14.1",
-    "livescript": "1.4.0",
-    "o-tools": "0.1.4"
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-dev-server": "1.14.1"
   }
 }
