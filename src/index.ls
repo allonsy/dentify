@@ -8,8 +8,11 @@ options =
   key: fs.readFileSync 'server.key'
   cert: fs.readFileSync 'server.crt'
   secureProtocol: 'TLSv1_2_method'
+  requestCert: true
+  rejectUnauthorized: false
 
 server = tls.createServer options, (socket) ->
+  console.log 'connected to user'
   console.log socket.getPeerCertificate()
 
 server.listen 3000 ->
