@@ -1,5 +1,3 @@
-module.exports = ({GET, resources}) ->
+module.exports = ({GET}) ->
 
   GET '/' to: 'index#index'
-
-  # resources 'users' only: <[ create destroy ]>

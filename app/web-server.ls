@@ -17,11 +17,12 @@ class WebServer extends EventEmitter
 
   ->
     @app = express!
-      ..use methodOverride '_method'
+      # ..use methodOverride '_method'
 
     # view engine setup
-    @app.set 'views', path.join __dirname, 'views'
-      ..set 'view engine', \jade
+    @app.set 'view engine', 'pug'
+    @app.set 'views', path.join __dirname, './client'
+
 
       ..use logger \dev
       ..use express.static path.join __dirname, 'public'

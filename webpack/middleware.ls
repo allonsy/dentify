@@ -10,5 +10,5 @@ require! {
 module.exports = webpack-config
   |> webpack
   |> webpack-dev-middleware _,
-    public-path: '/assets/'
     no-info: yes
+

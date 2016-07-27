@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "lsc app/index.ls"
+    "start": "coffee app2"
   },
   "repository": {
     "type": "git",
@@ -35,7 +35,11 @@
     "o-tools": "0.1.4",
     "o-tools-livescript": "^1.1.2",
     "pg": "^6.0.3",
+    "pug": "^2.0.0-beta4",
     "rails-delegate": "0.6.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "react-router": "^2.6.0",
     "serve-favicon": "2.3.0",
     "style-loader": "0.13.0",
     "stylus-loader": "1.5.1",
