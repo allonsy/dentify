@@ -1,3 +1,4 @@
+require './base_css'
 express = require 'express'
 webpack = require 'webpack'
 webpackDevMiddleware = require 'webpack-dev-middleware'
