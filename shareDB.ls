@@ -1,4 +1,13 @@
 module.exports =
   users:
-    gnuclient:
-      room: 719
+    gnuclient: {}
+  unoccupiedRooms: [
+    1,
+    2,
+    3
+  ]
+  occupiedRooms: [
+  ]
+  reservations: [
+    'gnuclient'
+  ]
