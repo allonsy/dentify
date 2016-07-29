@@ -1,4 +1,4 @@
-require './base_css'
+require './client/base_css'
 express = require 'express'
 webpack = require 'webpack'
 webpackDevMiddleware = require 'webpack-dev-middleware'
