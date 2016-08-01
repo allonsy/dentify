@@ -4,13 +4,17 @@ require! {
   'fs'
   'tls'
   './handler' : handler
+  'node-rsa' : nodersa
+  './signature': signature
 }
+
+key = fs.readFileSync 'server.key'
 
 module.exports =
   run: (shareDb) ->
 
     options =
-      key: fs.readFileSync 'server.key'
+      key: key
       cert: fs.readFileSync 'server.crt'
       ca: fs.readFileSync 'ca.crt'
       secureProtocol: 'TLSv1_2_method'
@@ -25,6 +29,7 @@ module.exports =
           dataStr = data.toString 'utf8'
           jsonData = JSON.parse dataStr
           resp = handler.handleJson jsonData, socket.getPeerCertificate!.subject.CN, shareDb
+          signature.signObj(resp)
           socket.write(JSON.stringify(resp) + '\r\n')
         catch err
           console.log 'unable to parse json: ' + dataStr
