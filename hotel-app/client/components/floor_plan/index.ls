@@ -10,8 +10,7 @@ class FloorPlan extends react.Component
   render: ->
     div className: 'c-floor-plan',
       for room, i in db.rooms
-        key: i
-        Room status: room.status
+        Room status: room.status, key: i, width: room.w, height: room.h
 
 
 module.exports = FloorPlan

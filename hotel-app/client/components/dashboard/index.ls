@@ -9,6 +9,8 @@ class DashBoard extends react.Component
   render: ->
     div className: 'c-dashboard',
       FloorPlan {}
+      # FloorPlan {}
+      # FloorPlan {}
 
 
 module.exports = DashBoard
