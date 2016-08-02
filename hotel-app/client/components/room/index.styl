@@ -1,35 +1,33 @@
 .c-room
-  height: 200px
-  width: 200px
   display: inline-block
   border: 5px solid #000
-  
-  &.booked
-    background-color: red
-    
-  &.available
-    background-color: green
-    
-  &.checked-in
-    background-color: orange
+  transition: transform 3s ease
+  text-align: center
+  text-transform: uppercase
+  // 3d stuff
+  // transform-origin: 0% 100%
+  // transform: rotateX(-45deg)
 
-  .status
-    position: relative
-    top: 50%
-    margin: auto
+  svg
+    width: 75px
+    height: 75px
     border-radius: 50%
-    width: 50px
-    height: 50px
-    
-    
-    &.booked
-      background-repeat: no-repeat
-      background-size: cover
-      background-image: url(./booked.png)
-      
-      // height: 50px
-      // width: 50px
-      
-  
+    border: 3px solid white
+
+  .st0
+    fill: white
+
+  &.booked
+    svg
+      background-color: #E80C18
+
+  &.available
+    svg
+      background-color: #00CF15
+
+  &.checked-in
+    svg
+      background-color: #FF730D
+
   .status-text
     text-align: center
