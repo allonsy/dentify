@@ -1,14 +1,14 @@
 require './index.styl'
 react = require 'react'
 {div} = react.DOM
-Room = react.createFactory require '../room'
+FloorPlan = react.createFactory require '../floor_plan'
 
 
 class DashBoard extends react.Component
 
   render: ->
-    div className: 'c-dashboard'#,
-      # Room {}, ''
+    div className: 'c-dashboard',
+      FloorPlan {}
 
 
 module.exports = DashBoard

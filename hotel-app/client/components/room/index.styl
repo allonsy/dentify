@@ -1,5 +1,35 @@
 .c-room
-  background-color: #000
-  height: 400px
-  width: 400px
+  height: 200px
+  width: 200px
   display: inline-block
+  border: 5px solid #000
+  
+  &.booked
+    background-color: red
+    
+  &.available
+    background-color: green
+    
+  &.checked-in
+    background-color: orange
+
+  .status
+    position: relative
+    top: 50%
+    margin: auto
+    border-radius: 50%
+    width: 50px
+    height: 50px
+    
+    
+    &.booked
+      background-repeat: no-repeat
+      background-size: cover
+      background-image: url(./booked.png)
+      
+      // height: 50px
+      // width: 50px
+      
+  
+  .status-text
+    text-align: center

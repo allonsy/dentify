@@ -20,4 +20,6 @@ module.exports =
   module:
     loaders:
       * test: /\.ls$/ loader: \livescript
-      * test: /\.styl/ loader: \style!css!stylus
+      * test: /\.styl$/ loader: \style!css!stylus
+      * test: /\.css$/ loader: \style!css
+      * test: /\.png$/ loader: \file
