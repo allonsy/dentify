@@ -1,6 +1,7 @@
 require './index.styl'
 react = require 'react'
 {div} = react.DOM
+db = require '../../../../shareDB'
 Room = react.createFactory require '../room'
 
 
@@ -8,12 +9,9 @@ class FloorPlan extends react.Component
 
   render: ->
     div className: 'c-floor-plan',
-      Room status: 'booked'
-      Room status: 'booked'
-      Room status: 'available'
-      Room status: 'available'
-      Room status: 'booked'
-      Room status: 'checked-in'
+      for room, i in db.rooms
+        key: i
+        Room status: room.status
 
 
 module.exports = FloorPlan
