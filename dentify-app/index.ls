@@ -43,5 +43,5 @@ module.exports =
       console.log "#{green 'TLS server'} online at port #{cyan '3000'}"
       console.log green 'All systems go'
 
-    setTimeout (-> shareDb.eventEmitter.emit 'update', 'testdata'), 5000
+    setTimeout (-> shareDb.eventEmitter.emit 'update', 'testdata'), 10000
 
