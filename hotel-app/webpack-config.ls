@@ -1,9 +1,13 @@
 path = require 'path'
 
-
 module.exports =
 
   entry: path.join __dirname, 'client/index.ls'
+
+  node:
+    fs: "empty"
+    tls: "empty"
+
 
   output:
     path: path.join __dirname, 'public'
@@ -23,3 +27,4 @@ module.exports =
       * test: /\.styl$/ loader: \style!css!stylus
       * test: /\.css$/ loader: \style!css
       * test: /\.png|.svg$/ loader: \file
+      * test: /\.json$/ loader: \json

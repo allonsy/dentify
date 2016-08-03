@@ -3,7 +3,7 @@ react = require 'react'
 {div} = react.DOM
 db = require '../../../../shareDB'
 Room = react.createFactory require '../room'
-io = require 'socket.io'
+io = require 'socket.io-client'
 
 
 class FloorPlan extends react.Component

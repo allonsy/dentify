@@ -7,7 +7,6 @@ http = require 'http'
 module.exports =
   run: (shareDB) ->
     app = express!
-    app.listen 8000
 
     app.use webpackDevMiddleware webpack require './webpack-config.ls'
 
@@ -24,4 +23,4 @@ module.exports =
       shareDB.eventEmitter.on 'update', (data) ->
         socket.emit 'update', data
 
-    # server.listen(3000)
+    server.listen(8000)
