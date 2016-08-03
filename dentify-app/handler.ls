@@ -48,5 +48,17 @@ module.exports =
       shareDb.eventEmitter.emit 'update', shareDb
       return {success: true, amount: userRoom.amount}
 
+    case 'CHECKOUT'
+      userRoom = findRoom shareDb.rooms, username
+      if not userRoom? or userRoom.status isnt 'checked-in'
+        return { success: false, error: 'User isn\'t checked in!'}
+      payAmount = if userRoom.amount? then userRoom.amount else 0
+      retJson = { success: true, amount: payAmount}
+      userRoom.status = 'available'
+      delete userRoom.user
+      delete userRoom.amount if userRoom.amount?
+      shareDb.eventEmitter.emit 'update', shareDb
+      return retJson
+
     default
       {success: false, error: "Command '" + command + "' not supported!"}
