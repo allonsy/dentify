@@ -5,19 +5,18 @@ db = require '../../../../shareDB'
 Room = react.createFactory require '../room'
 io = require 'socket.io-client'
 
-
 class FloorPlan extends react.Component
 
 
   ->
     @state = rooms: db.rooms
-    socket = io!
-    socket.on 'connection', -> console.log 'connected'
+    @socket = io!
+    @socket.on 'connection', -> console.log 'connected'
 
 
   componentDidMount: ~>
-    db.eventEmitter.on 'update', ~>
-      console.log 'got update'
+    @socket.on 'update', (data) ~>
+      console.log data
       @setState room: db.rooms
 
 
