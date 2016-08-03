@@ -9,10 +9,10 @@ class Room extends react.Component
   render: ->
     div {
       className: "c-room #{@props.status}"
-      style: {
-        width: @props.width
-        height: @props.height
-      }
+      # style: {
+      #   width: @props.width
+      #   height: @props.height
+      # }
     },
       isvg src: require "./#{@props.status}-1.svg"
       div className: 'status-text', @props.status

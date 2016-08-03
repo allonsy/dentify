@@ -6,6 +6,7 @@ require! {
   './handler' : handler
   'node-rsa' : nodersa
   './signature': signature
+  'socket.io': io
 }
 
 key = fs.readFileSync 'server.key'
@@ -41,3 +42,6 @@ module.exports =
     tls-server.listen 3000 ->
       console.log "#{green 'TLS server'} online at port #{cyan '3000'}"
       console.log green 'All systems go'
+
+    setTimeout (-> shareDb.eventEmitter.emit 'update', 'testdata'), 5000
+

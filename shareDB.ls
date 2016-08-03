@@ -1,4 +1,8 @@
+EventEmitter = require 'event-emitter'
+
+
 module.exports =
+  eventEmitter: new EventEmitter
   users:
     gnuclient: {}
   unoccupiedRooms: [
