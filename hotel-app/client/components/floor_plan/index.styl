@@ -3,10 +3,13 @@
   transition: transform 3s ease
   height: 100%
   padding: 25px 25px
+  box-sizing: border-box
 
   .bottom
     top: calc(60% - 200px)
     position: relative
+
   // 3d stuff
-  // transform: rotateX(45deg)
-  // transform-style: preserve-3d
+  transform: rotateX(45deg) rotateZ(-45deg) translateX(400px) translateY(-400px) translateZ(-300px)
+  transform-style: preserve-3d
+
