@@ -10,10 +10,9 @@ class Room extends react.Component
   render: ->
     div className: "c-room #{@props.status}", onClick: @toggle, style: pointer-events: @props.pointerEvents,
       if @props.showMarker
-        div className: 'door-label', #style: if @state.uprightMarker then uprightMarkerStyle else downMarkerStyle,
+        div className: 'door-label',
           div className: 'marker',
-            isvg src: require "./#{@props.status}-1.svg"
-          # div className: 'status-text', @props.status
+            isvg src: (require "./#{@props.status}-1.svg"), key: @props.status
 
 
 module.exports = Room
