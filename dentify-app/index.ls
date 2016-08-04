@@ -30,7 +30,7 @@ module.exports =
           dataStr = data.toString 'utf8'
           jsonData = JSON.parse dataStr
           resp = handler.handleJson jsonData, socket.getPeerCertificate!.subject.CN, shareDb
-          signature.signObj(resp)
+          #signature.signObj(resp)
           toSend = JSON.stringify(resp) + '\r\n'
           console.log 'SENDING TO CLIENT: ' + toSend
           socket.write(toSend)
