@@ -11,12 +11,13 @@ class DashBoard extends react.Component
 
   xrot = 60
   zrot = -45
-  ztrans = -700
+  xtrans = 0
   ytrans = -1000
+  ztrans = -600
   floorHeight = 200
 
   focusFloor =
-    transform: "rotateX(#{xrot}deg) translateZ(-20px) translateY(0px) rotateZ(0deg) translateX(300px)"
+    transform: "rotateX(#{xrot}deg) translateZ(-20px) translateY(0px) rotateZ(0deg) translateX(200px)"
     transform-style: 'preserve-3d'
 
   hiddenUpperFloor =
@@ -29,15 +30,15 @@ class DashBoard extends react.Component
 
   floorStyles = [
     {
-      transform: "rotateX(#{xrot}deg) translateZ(#{ztrans}px) translateY(#{ytrans}px) rotateZ(#{zrot}deg)"
+      transform: "rotateX(#{xrot}deg) translateZ(#{ztrans}px) translateY(#{ytrans}px) rotateZ(#{zrot}deg) translateX(#{xtrans}px)"
       transform-style: 'preserve-3d'
     },
     {
-      transform: "rotateX(#{xrot}deg) translateZ(#{ztrans+floorHeight*1}px) translateY(#{ytrans}px) rotateZ(#{zrot}deg)"
+      transform: "rotateX(#{xrot}deg) translateZ(#{ztrans+floorHeight*1}px) translateY(#{ytrans}px) rotateZ(#{zrot}deg) translateX(#{xtrans}px)"
       transform-style: 'preserve-3d'
     },
     {
-      transform: "rotateX(#{xrot}deg) translateZ(#{ztrans+floorHeight*2}px) translateY(#{ytrans}px) rotateZ(#{zrot}deg)"
+      transform: "rotateX(#{xrot}deg) translateZ(#{ztrans+floorHeight*2}px) translateY(#{ytrans}px) rotateZ(#{zrot}deg) translateX(#{xtrans}px)"
       transform-style: 'preserve-3d'
     }
   ]
@@ -82,6 +83,15 @@ class DashBoard extends react.Component
         ul {},
           li {},
             button {bsStyle: 'primary', onClick: @reset}, 'Back'
+          if @state.focus > -1
+            div {},
+              li {},
+                button className: 'book', 'Book'
+              li {},
+                button className: 'checkin', 'Check In'
+              li {},
+                button className: 'checkout', 'Check Out'
+
       div className: 'floors',
         # loop doesn't work for some reason... always focuses on floor 2
         # for floor, i in @state.floors
