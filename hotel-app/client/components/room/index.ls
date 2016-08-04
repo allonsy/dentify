@@ -8,7 +8,7 @@ class Room extends react.Component
 
 
   render: ->
-    div className: "c-room #{@props.status}", onClick: @toggle, style: pointer-events: @props.pointerEvents,
+    div className: "c-room #{@props.status} #{if @props.focused then 'focused' else ''}", onClick: @toggle, style: pointer-events: @props.pointerEvents,
       if @props.showMarker
         div className: 'door-label',
           div className: 'marker',

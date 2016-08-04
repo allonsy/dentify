@@ -13,6 +13,10 @@ $size = 75px
   width: 200px
   height: 200px
 
+  &.focused
+    &:hover
+      background-color: #777
+
   .door-label
     transform: rotateX(-90deg)
     transition: transform 3s ease
@@ -46,9 +50,6 @@ $size = 75px
       background-color: #FF730D
       &:after
         border-top-color: #FF730D
-
-  &:hover
-    background-color: #777
 
   .marker
     width: $size

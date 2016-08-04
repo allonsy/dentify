@@ -15,8 +15,6 @@ class DashBoard extends react.Component
   ytrans = -1000
   floorHeight = 200
 
-
-  # rotateX(60deg) translateZ(-20px) translateY(-000px) rotateZ(-0deg) translateX(300px)
   focusFloor =
     transform: "rotateX(#{xrot}deg) translateZ(-20px) translateY(0px) rotateZ(0deg) translateX(300px)"
     transform-style: 'preserve-3d'
@@ -44,6 +42,7 @@ class DashBoard extends react.Component
     }
   ]
 
+
   ->
     @state =
       floors: db.floors
@@ -58,12 +57,10 @@ class DashBoard extends react.Component
 
 
   focusFloor: (f) ->
-    console.log "focusing on #{f}"
     @setState focus: f
 
 
   setStyle: (f) ->
-    console.log "@state.focus: #{@state.focus}"
     if @state.focus is -1
       floorStyles[f]
     else
@@ -86,7 +83,7 @@ class DashBoard extends react.Component
           li {},
             button {bsStyle: 'primary', onClick: @reset}, 'Back'
       div className: 'floors',
-        # loop doesn't work for some reason... always focusses on floor 2
+        # loop doesn't work for some reason... always focuses on floor 2
         # for floor, i in @state.floors
         FloorPlan {
           # key: i
