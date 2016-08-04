@@ -20,6 +20,7 @@ module.exports =
     io = (require 'socket.io')(server)
     io.on 'connection', (socket) ->
       console.log 'connected'
+      socket.emit 'update', shareDB
       shareDB.eventEmitter.on 'update', (data) ->
         console.log 'update event received from db. emitting on socket'
         socket.emit 'update', data

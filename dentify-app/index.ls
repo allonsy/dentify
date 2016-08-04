@@ -31,7 +31,9 @@ module.exports =
           jsonData = JSON.parse dataStr
           resp = handler.handleJson jsonData, socket.getPeerCertificate!.subject.CN, shareDb
           signature.signObj(resp)
-          socket.write(JSON.stringify(resp) + '\r\n')
+          toSend = JSON.stringify(resp) + '\r\n'
+          console.log 'SENDING TO CLIENT: ' + toSend
+          socket.write(toSend)
         catch err
           console.log 'unable to parse json: ' + dataStr
           console.log 'error is: ' + err
