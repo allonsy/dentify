@@ -3,22 +3,24 @@ $size = 75px
 
 .c-room
   display: inline-block
-  border: 5px solid #000
   transition: transform 3s ease
   text-align: center
   text-transform: uppercase
   position: relative
   background-color: #999
+  border-right: 5px solid black
 
-  width: 300px
+  width: 200px
   height: 200px
 
   .door-label
-    transform: rotateX(-90deg) rotateY(-45deg)
+    transform: rotateX(-90deg)
     transition: transform 3s ease
     left: 50%
     top: 50%
     position: absolute
+    pointer-events: none
+    z-index: 1
 
   svg
     width: 75px

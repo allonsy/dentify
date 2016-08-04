@@ -9,7 +9,8 @@ class FloorPlan extends react.Component
 
 
   ->
-    @state = rooms: db.rooms
+    @state =
+      rooms: db.rooms
     @socket = io!
     @socket.on 'connection', -> console.log 'connected'
 
@@ -20,14 +21,18 @@ class FloorPlan extends react.Component
       @setState room: db.rooms
 
 
+  onClick: (e) ~>
+    @props.onClick e
+
+
   render: ->
-    div className: 'c-floor-plan',
+    div className: 'c-floor-plan', style: @props.style, onClick: @onClick,
       div className: 'top',
         for room, i in @state.rooms[0 til @state.rooms.length/2]
-          Room status: room.status, key: i, width: room.w, height: room.h, showMarker: @props.showMarkers
+          Room status: room.status, key: i, showMarker: @props.showMarkers
       div className: 'bottom',
         for room, i in @state.rooms[@state.rooms.length/2 til @state.rooms.length]
-          Room status: room.status, key: i, width: room.w, height: room.h, showMarker: @props.showMarkers
+          Room status: room.status, key: i, showMarker: @props.showMarkers
 
 
 module.exports = FloorPlan

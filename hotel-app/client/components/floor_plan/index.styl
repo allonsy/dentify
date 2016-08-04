@@ -1,18 +1,39 @@
 .c-floor-plan
   background: #999
-  transition: transform 3s ease
+  transition: transform 2s ease
   height: 100%
   box-sizing: border-box
+  position: absolute
+  top: 0
+  left: 0
+  border: 5px solid black
+
+  .top
+    .c-room
+      border-top: none
+      border-bottom: 5px solid black
+      &:first-child
+        border-left: none
+      &:last-child
+        border-right: none
 
   .bottom
-    top: calc(100% - 420px)
-    position: relative
+    bottom: -3px
+    position: absolute
+    .c-room
+      border-bottom: none
+      border-top: 5px solid black
+      &:first-child
+        border-left: none
+      &:last-child
+        border-right: none
 
-  .top, .bottom
-    transform-style: preserve-3d
 
-  // 3d stuff
-  transform: rotateX(45deg) rotateZ(-45deg) translateX(400px) translateY(-400px) translateZ(-300px)
-  transform-style: preserve-3d
-  -webkit-transform-style: preserve-3d
+  &:hover
+    background: darken(#999, 20%)
+
+  // // 3d stuff
+  // transform: rotateX(45deg) rotateZ(-45deg) translateX(400px) translateY(-400px) translateZ(-300px)
+  // transform-style: preserve-3d
+  // -webkit-transform-style: preserve-3d
 
