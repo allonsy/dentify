@@ -24,10 +24,10 @@ class FloorPlan extends react.Component
     div className: 'c-floor-plan',
       div className: 'top',
         for room, i in @state.rooms[0 til @state.rooms.length/2]
-          Room status: room.status, key: i, width: room.w, height: room.h
+          Room status: room.status, key: i, width: room.w, height: room.h, showMarker: @props.showMarkers
       div className: 'bottom',
         for room, i in @state.rooms[@state.rooms.length/2 til @state.rooms.length]
-          Room status: room.status, key: i, width: room.w, height: room.h
+          Room status: room.status, key: i, width: room.w, height: room.h, showMarker: @props.showMarkers
 
 
 module.exports = FloorPlan

@@ -1,3 +1,6 @@
+$size = 75px
+
+
 .c-room
   display: inline-block
   border: 5px solid #000
@@ -10,38 +13,68 @@
   width: 300px
   height: 200px
 
-  // 3d stuff
-  // transform-origin: 0% 100%
-  // transform: rotateX(-45deg)
-
-  .top, .bottom
-    pointer-events: none
-
   .door-label
     transform: rotateX(-90deg) rotateY(-45deg)
     transition: transform 3s ease
-    pointer-events: none
+    left: 50%
+    top: 50%
+    position: absolute
 
   svg
     width: 75px
     height: 75px
-    border-radius: 50%
-    border: 3px solid white
 
   .st0
     fill: white
 
   &.booked
-    svg
+    .marker
       background-color: #E80C18
+      &:after
+        border-top-color: #E80C18
 
   &.available
-    svg
+    .marker
       background-color: #00CF15
+      &:after
+        border-top-color: #00CF15
 
   &.checked-in
-    svg
+    .marker
       background-color: #FF730D
+      &:after
+        border-top-color: #FF730D
 
   &:hover
     background-color: #777
+
+  .marker
+    width: $size
+    height: $size
+    background: red
+    border-radius: $size
+    position: absolute
+    margin: -125px -36px
+    border: ($size / 20) solid #eee
+
+    svg
+      position: relative
+      z-index: 1
+
+    &:before, &:after
+      content: ''
+      position: absolute
+      top: ($size * .5)
+      left: 50%
+
+     &:after
+       $border-size = .48
+       border: ($size * $border-size) solid transparent
+       margin: ($size * .15) ($size * $border-size * -1)
+       border-top-width: ($size * .95)
+
+      &:before
+        $border-size = .51
+        border: ($size * $border-size) solid transparent
+        margin: ($size * .2) ($size * $border-size * -1)
+        border-top: $size solid #eee
