@@ -13,9 +13,15 @@ $size = 75px
   width: 200px
   height: 200px
 
+  pointer-events: none
+
   &.focused
+    pointer-events: auto
     &:hover
       background-color: #777
+
+  &.selected
+    background-color: #777
 
   .door-label
     transform: rotateX(-90deg)

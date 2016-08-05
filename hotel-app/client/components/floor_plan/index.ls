@@ -11,10 +11,28 @@ class FloorPlan extends react.Component
     div className: "c-floor-plan #{if @props.showMarkers then 'focused' else ''}", style: @props.style, onClick: @props.onClick,
       div className: 'top',
         for room, i in @props.rooms[0 til @props.rooms.length/2]
-          Room status: room.status, key: i, showMarker: @props.showMarkers, focused: @props.showMarkers
+          Room {
+            key: i
+            status: room.status
+            showMarker: @props.showMarkers
+            focused: @props.showMarkers
+            roomNo: room.roomNo
+            user: room.user
+            onSelect: @props.onSelectRoom
+            floorNo: @props.floorNo
+          }
       div className: 'bottom',
         for room, i in @props.rooms[@props.rooms.length/2 til @props.rooms.length]
-          Room status: room.status, key: i, showMarker: @props.showMarkers, focused: @props.showMarkers
+          Room {
+            key: i
+            status: room.status
+            showMarker: @props.showMarkers
+            focused: @props.showMarkers
+            roomNo: room.roomNo
+            user: room.user
+            onSelect: @props.onSelectRoom
+            floorNo: @props.floorNo
+          }
 
 
 module.exports = FloorPlan

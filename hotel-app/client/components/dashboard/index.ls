@@ -48,6 +48,7 @@ class DashBoard extends react.Component
     @state =
       floors: db.floors
       focus: -1
+      selectedRooms: []
     @socket = io!
     @socket.on 'connection', -> console.log 'connected'
 
@@ -77,6 +78,25 @@ class DashBoard extends react.Component
     @setState focus: -1
 
 
+  selectRoom: (room) ~>
+    selectedRooms = @state.selectedRooms
+    selectedRooms.push room
+    @setState selectedRooms: selectedRooms
+
+
+  book: ~>
+    console.log "booking: ", @state.selectedRooms
+
+
+  checkin: ~>
+    console.log "checking in: ", @state.selectedRooms
+
+
+  checkout: ~>
+    console.log "checking out: ", @state.selectedRooms
+
+
+
   render: ->
     div className: 'c-dashboard',
       nav {},
@@ -86,11 +106,11 @@ class DashBoard extends react.Component
           if @state.focus > -1
             div {},
               li {},
-                button className: 'book', 'Book'
+                button className: 'book', onClick: @book, 'Book'
               li {},
-                button className: 'checkin', 'Check In'
+                button className: 'checkin', onClick: @checkin, 'Check In'
               li {},
-                button className: 'checkout', 'Check Out'
+                button className: 'checkout', onClick: @checkout, 'Check Out'
 
       div className: 'floors',
         # loop doesn't work for some reason... always focuses on floor 2
@@ -101,6 +121,8 @@ class DashBoard extends react.Component
           onClick: ~> @focusFloor 0
           showMarkers: @state.focus is 0
           rooms: @state.floors[0].rooms
+          onSelectRoom: @selectRoom
+          floorNo: 0
         }
         FloorPlan {
           # key: i
@@ -108,6 +130,8 @@ class DashBoard extends react.Component
           onClick: ~> @focusFloor 1
           showMarkers: @state.focus is 1
           rooms: @state.floors[1].rooms
+          onSelectRoom: @selectRoom
+          floorNo: 1
         }
         FloorPlan {
           # key: i
@@ -115,6 +139,8 @@ class DashBoard extends react.Component
           onClick: ~> @focusFloor 2
           showMarkers: @state.focus is 2
           rooms: @state.floors[2].rooms
+          onSelectRoom: @selectRoom
+          floorNo: 2
         }
 
 
