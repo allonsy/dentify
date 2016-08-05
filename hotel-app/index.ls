@@ -21,6 +21,8 @@ module.exports =
     io.on 'connection', (socket) ->
       console.log 'connected'
       socket.emit 'update', shareDB
+      socket.on 'feUpdate', (data) ->
+        shareDB = data
       shareDB.eventEmitter.on 'update', (data) ->
         console.log 'update event received from db. emitting on socket'
         socket.emit 'update', data
