@@ -84,32 +84,23 @@ class DashBoard extends react.Component
       selectedRooms.push room
     else
       for selectedRoom, i in selectedRooms
-        if selectedRoom?.roomNo is room.roomNo
+        if selectedRoom?.roomNo is room.roomNo and selectedRoom?.floorNo is room.floorNo
           selectedRooms.splice i, 1
     @setState selectedRooms: selectedRooms
 
 
 
-  book: ~>
-    console.log "booking: ", @state.selectedRooms
+  update: (status) ~>
     selectedRooms = @state.selectedRooms
     floors = @state.floors
     for floor in floors
-      for room in floor.rooms
-        for selectedRoom in selectedRooms
-          if room.roomNo is selectedRoom.roomNo
-            room.status = 'booked'
+      for selectedRoom in selectedRooms
+        if floor.floorNo is selectedRoom.floorNo
+          for room in floor.rooms
+            if room.roomNo is selectedRoom.roomNo
+              room.status = status
     db.floors = floors
     @socket.emit 'feUpdate', db
-
-
-  checkin: ~>
-    console.log "checking in: ", @state.selectedRooms
-
-
-  checkout: ~>
-    console.log "checking out: ", @state.selectedRooms
-
 
 
   render: ->
@@ -121,11 +112,12 @@ class DashBoard extends react.Component
           if @state.focus > -1
             div {},
               li {},
-                button className: 'book', onClick: @book, 'Book'
+                button {className: 'book', onClick: ~> @update 'booked'}, 'Book'
               li {},
-                button className: 'checkin', onClick: @checkin, 'Check In'
+                button {className: 'checkin', onClick: ~> @update 'checked-in'}, 'Check In'
               li {},
-                button className: 'checkout', onClick: @checkout, 'Check Out'
+                button {className: 'checkout', onClick: ~> @update 'available'}, 'Check Out'
+              li {}, "Rooms selected: #{@state.selectedRooms.length}"
 
       div className: 'floors',
         # loop doesn't work for some reason... always focuses on floor 2
