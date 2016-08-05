@@ -21,6 +21,7 @@ class FloorPlan extends react.Component
             onSelect: @props.onSelectRoom
             floorNo: @props.floorNo
           }
+      div className: 'floor-no', "Floor #{@props.floorNo}"
       div className: 'bottom',
         for room, i in @props.rooms[@props.rooms.length/2 til @props.rooms.length]
           Room {

@@ -5,86 +5,43 @@ module.exports =
   eventEmitter: new EventEmitter
   floors: [
     {
-      floorNo: 0
-      rooms: [
-        {
-          roomNo: 0
-          status: 'booked'
-          user: 'gnuclient'
-        },
-        {
-          roomNo: 1
-          status: 'booked'
-          user: 'Gerald Ford'
-        },
-        {
-          roomNo: 2
-          status: 'available'
-        },
-        {
-          roomNo: 3
-          status: 'available'
-        },
-        {
-          roomNo: 4
-          status: 'booked'
-          user: 'celene dion'
-        },
-        {
-          roomNo: 5
-          status: 'checked-in'
-          user: 'Kevin Goslar'
-        },
-        {
-          roomNo: 6
-          status: 'checked-in'
-          user: 'Kevin Goslar'
-        },
-        {
-          roomNo: 7
-          status: 'checked-in'
-          user: 'Kevin Goslar'
-        }
-      ]
-    },
-    {
       floorNo: 1
       rooms: [
         {
-          roomNo: 0
+          roomNo: 1000
           status: 'booked'
           user: 'gnuclient'
         },
         {
-          roomNo: 1
+          roomNo: 1001
           status: 'booked'
           user: 'Gerald Ford'
         },
         {
-          roomNo: 2
+          roomNo: 1002
           status: 'available'
         },
         {
-          roomNo: 3
+          roomNo: 1003
           status: 'available'
         },
         {
-          roomNo: 4
+          roomNo: 1004
           status: 'booked'
           user: 'celene dion'
         },
         {
-          roomNo: 5
+          roomNo: 1005
           status: 'checked-in'
           user: 'Kevin Goslar'
         },
         {
-          roomNo: 6
+          roomNo: 1006
           status: 'checked-in'
           user: 'Kevin Goslar'
         },
         {
-          roomNo: 7
+          roomNo: 1007
           status: 'checked-in'
           user: 'Kevin Goslar'
         }
@@ -94,40 +51,83 @@ module.exports =
       floorNo: 2
       rooms: [
         {
-          roomNo: 0
+          roomNo: 2000
           status: 'booked'
           user: 'gnuclient'
         },
         {
-          roomNo: 1
+          roomNo: 2001
           status: 'booked'
           user: 'Gerald Ford'
         },
         {
-          roomNo: 2
+          roomNo: 2002
           status: 'available'
         },
         {
-          roomNo: 3
+          roomNo: 2003
           status: 'available'
         },
         {
-          roomNo: 4
+          roomNo: 2004
           status: 'booked'
           user: 'celene dion'
         },
         {
-          roomNo: 5
+          roomNo: 2005
           status: 'checked-in'
           user: 'Kevin Goslar'
         },
         {
-          roomNo: 6
+          roomNo: 2006
           status: 'checked-in'
           user: 'Kevin Goslar'
         },
         {
-          roomNo: 7
+          roomNo: 2007
+          status: 'checked-in'
+          user: 'Kevin Goslar'
+        }
+      ]
+    },
+    {
+      floorNo: 3
+      rooms: [
+        {
+          roomNo: 3000
+          status: 'booked'
+          user: 'gnuclient'
+        },
+        {
+          roomNo: 3001
+          status: 'booked'
+          user: 'Gerald Ford'
+        },
+        {
+          roomNo: 3002
+          status: 'available'
+        },
+        {
+          roomNo: 3003
+          status: 'available'
+        },
+        {
+          roomNo: 3004
+          status: 'booked'
+          user: 'celene dion'
+        },
+        {
+          roomNo: 3005
+          status: 'checked-in'
+          user: 'Kevin Goslar'
+        },
+        {
+          roomNo: 3006
+          status: 'checked-in'
+          user: 'Kevin Goslar'
+        },
+        {
+          roomNo: 3007
           status: 'checked-in'
           user: 'Kevin Goslar'
         }

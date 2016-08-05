@@ -55,6 +55,7 @@ class DashBoard extends react.Component
 
   componentDidMount: ~>
     @socket.on 'update', (data) ~>
+      console.log 'beUpdate: ', data
       @setState floors: data.floors
 
 
@@ -89,10 +90,11 @@ class DashBoard extends react.Component
     @setState selectedRooms: selectedRooms
 
 
-
   update: (status) ~>
     selectedRooms = @state.selectedRooms
     floors = @state.floors
+
+    # wow n^3 so efficient
     for floor in floors
       for selectedRoom in selectedRooms
         if floor.floorNo is selectedRoom.floorNo
@@ -120,34 +122,42 @@ class DashBoard extends react.Component
               li {}, "Rooms selected: #{@state.selectedRooms.length}"
 
       div className: 'floors',
-        # loop doesn't work for some reason... always focuses on floor 2
+        # loop doesn't work for some reason... always focuses on 3rd floor
         # for floor, i in @state.floors
+        #   FloorPlan {
+        #     key: i
+        #     style: @setStyle i
+        #     onClick: ~> @focusFloor i
+        #     showMarkers: @state.focus is i
+        #     rooms: @state.floors[i].rooms
+        #     onSelectRoom: @selectRoom
+        #     floorNo: i+1
+        #   }
         FloorPlan {
-          # key: i
           style: @setStyle 0
           onClick: ~> @focusFloor 0
           showMarkers: @state.focus is 0
           rooms: @state.floors[0].rooms
           onSelectRoom: @selectRoom
-          floorNo: 0
+          floorNo: 1
         }
+
         FloorPlan {
-          # key: i
           style: @setStyle 1
           onClick: ~> @focusFloor 1
           showMarkers: @state.focus is 1
           rooms: @state.floors[1].rooms
           onSelectRoom: @selectRoom
-          floorNo: 1
+          floorNo: 2
         }
+
         FloorPlan {
-          # key: i
           style: @setStyle 2
           onClick: ~> @focusFloor 2
           showMarkers: @state.focus is 2
           rooms: @state.floors[2].rooms
           onSelectRoom: @selectRoom
-          floorNo: 2
+          floorNo: 3
         }
 
 

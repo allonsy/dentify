@@ -15,6 +15,14 @@ $size = 75px
 
   pointer-events: none
 
+  .room-no
+    color: #333
+    bottom: 10%
+    position: absolute
+    width: 100%
+    font-size: 30px
+    text-transform: capitalize
+
   &.focused
     pointer-events: auto
     &:hover
@@ -37,7 +45,7 @@ $size = 75px
     height: 75px
 
   .st0
-    fill: white
+    fill: #333
 
   &.booked
     .marker
@@ -64,7 +72,7 @@ $size = 75px
     border-radius: $size
     position: absolute
     margin: -125px -36px
-    border: ($size / 20) solid #eee
+    border: ($size / 20) solid #333
 
     svg
       position: relative
@@ -74,16 +82,18 @@ $size = 75px
       content: ''
       position: absolute
       top: ($size * .5)
-      left: 50%
 
      &:after
        $border-size = .48
        border: ($size * $border-size) solid transparent
        margin: ($size * .15) ($size * $border-size * -1)
        border-top-width: ($size * .95)
+       border-radius: 5px
 
       &:before
         $border-size = .51
         border: ($size * $border-size) solid transparent
         margin: ($size * .2) ($size * $border-size * -1)
-        border-top: $size solid #eee
+        border-top: $size solid #333
+        z-index: -1
+        left: 51.4%
