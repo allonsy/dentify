@@ -7,6 +7,13 @@ findRoom = (floors, username) ->
       if room.user is username
         return room
 
+findRoomAndFloor = (floors, username) ->
+  for floor in floors
+    for room in floor.rooms
+      if room.user is username
+        return [floor.floorNo, room]
+  return [null, null]
+
 module.exports =
   handleJson: (json, username, shareDb) ->
     if not json.command?
@@ -18,15 +25,17 @@ module.exports =
     case 'OPENDOOR'
       if not json.room?
         return {success: false, error: 'Please provide a room number'}
-      userRoom = findRoom shareDb.floors, username
+      if not json.floor?
+        return {success: false, error: 'Please provide a floor number'}
+      [floorNumber, userRoom] = findRoomAndFloor shareDb.floors, username
       if not userRoom? or userRoom.status isnt 'checked-in'
         return {success: false, error: 'User is not checked in'}
-      if userRoom.roomNo isnt json.room
+      if userRoom.roomNo isnt json.room or floorNumber isnt json.floor
         return {success: false, error: 'Room number is incorrect'}
       return {success: true}
 
     case 'CHECKIN'
-      userRoom = findRoom shareDb.floors, username
+      [floorNumber, userRoom] = findRoomAndFloor shareDb.floors, username
       if not userRoom?
         return {success: false, error: 'reservation for: ' + username + ' not found'}
       else if userRoom.status isnt 'booked'
@@ -34,7 +43,7 @@ module.exports =
       else
         userRoom.status = 'checked-in'
         shareDb.eventEmitter.emit 'update', shareDb
-        return {success: true, room: userRoom.roomNo}
+        return {success: true, room: userRoom.roomNo, floor: floorNumber}
 
     case 'ROOMCHARGE'
       userRoom = findRoom shareDb.floors, username
