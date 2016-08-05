@@ -22,7 +22,7 @@ module.exports =
       console.log 'connected'
       socket.emit 'update', shareDB
       socket.on 'feUpdate', (data) ->
-        shareDB = data
+        shareDB.floors = data.floors
         socket.emit 'update', shareDB
       shareDB.eventEmitter.on 'update', (data) ->
         console.log 'update event received from db. emitting on socket'
