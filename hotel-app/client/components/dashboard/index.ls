@@ -80,12 +80,27 @@ class DashBoard extends react.Component
 
   selectRoom: (room) ~>
     selectedRooms = @state.selectedRooms
-    selectedRooms.push room
+    if room.selected  
+      selectedRooms.push room
+    else
+      for selectedRoom, i in selectedRooms
+        if selectedRoom?.roomNo is room.roomNo
+          selectedRooms.splice i, 1
     @setState selectedRooms: selectedRooms
+
 
 
   book: ~>
     console.log "booking: ", @state.selectedRooms
+    selectedRooms = @state.selectedRooms
+    floors = @state.floors
+    for floor in floors
+      for room in floor.rooms
+        for selectedRoom in selectedRooms
+          if room.roomNo is selectedRoom.roomNo
+            room.status = 'booked'
+    db.floors = floors
+    @socket.emit 'feUpdate', db
 
 
   checkin: ~>

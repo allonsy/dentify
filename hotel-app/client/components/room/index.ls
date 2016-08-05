@@ -11,8 +11,10 @@ class Room extends react.Component
 
 
   onSelect: ~>
-    @setState selected: yes
+    selected = @state.selected
+    @setState selected: !selected
     @props.onSelect {
+      selected: !selected
       roomNo: @props.roomNo
       user: @props.user
       status: @props.status
