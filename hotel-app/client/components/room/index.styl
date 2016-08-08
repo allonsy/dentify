@@ -1,5 +1,7 @@
 $size = 75px
-
+$booked-color = #FF730D
+$available-color = #00CF15
+$checkedin-color = #E80C18
 
 .c-room
   display: inline-block
@@ -33,12 +35,15 @@ $size = 75px
 
   .door-label
     transform: rotateX(-90deg)
-    transition: transform 3s ease
+    transition: transform 1s ease
     left: 50%
     top: 50%
     position: absolute
     pointer-events: none
     z-index: 1
+
+    &.selected
+      transform: translateZ(30px) rotateX(-90deg)
 
   svg
     width: 75px
@@ -49,21 +54,21 @@ $size = 75px
 
   &.booked
     .marker
-      background-color: #E80C18
+      background-color: $booked-color
       &:after
-        border-top-color: #E80C18
+        border-top-color: $booked-color
 
   &.available
     .marker
-      background-color: #00CF15
+      background-color: $available-color
       &:after
-        border-top-color: #00CF15
+        border-top-color: $available-color
 
   &.checked-in
     .marker
-      background-color: #FF730D
+      background-color: $checkedin-color
       &:after
-        border-top-color: #FF730D
+        border-top-color: $checkedin-color
 
   .marker
     width: $size

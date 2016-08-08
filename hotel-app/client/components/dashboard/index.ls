@@ -4,6 +4,7 @@ io = require 'socket.io-client'
 db = require '../../../../shareDB'
 {div, li, nav, ul} = react.DOM
 button = react.createFactory require 'react-bootstrap/lib/Button.js'
+SideMenu = react.createFactory require '../side_menu'
 FloorPlan = react.createFactory require '../floor_plan'
 
 
@@ -17,7 +18,7 @@ class DashBoard extends react.Component
   floorHeight = 200
 
   focusFloor =
-    transform: "rotateX(#{xrot}deg) translateZ(-20px) translateY(0px) rotateZ(0deg) translateX(200px)"
+    transform: "rotateX(#{xrot}deg) translateZ(-20px) translateY(-25%) rotateZ(0deg) translateX(10%)"
     transform-style: 'preserve-3d'
 
   hiddenUpperFloor =
@@ -81,7 +82,7 @@ class DashBoard extends react.Component
 
   selectRoom: (room) ~>
     selectedRooms = @state.selectedRooms
-    if room.selected  
+    if room.selected
       selectedRooms.push room
     else
       for selectedRoom, i in selectedRooms
@@ -111,8 +112,8 @@ class DashBoard extends react.Component
         ul {},
           li {},
             button {bsStyle: 'primary', onClick: @reset}, 'Back'
-          if @state.focus > -1
-            div {},
+          if @state.focus > -1 and @state.selectedRooms.length > 0
+            div className: 'controls',
               li {},
                 button {className: 'book', onClick: ~> @update 'booked'}, 'Book'
               li {},
@@ -120,7 +121,13 @@ class DashBoard extends react.Component
               li {},
                 button {className: 'checkout', onClick: ~> @update 'available'}, 'Check Out'
               li {}, "Rooms selected: #{@state.selectedRooms.length}"
-
+      if @state.focus > -1
+        div className: 'legend',
+          div className: 'booked', 'Booked'
+          div className: 'available', 'Available'
+          div className: 'checkedin', 'Checked In'
+      # else
+        # SideMenu {}
       div className: 'floors',
         # loop doesn't work for some reason... always focuses on 3rd floor
         # for floor, i in @state.floors
