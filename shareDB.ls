@@ -15,7 +15,7 @@ module.exports =
         {
           roomNo: 1001
           status: 'booked'
-          user: 'Gerald Ford'
+          user: 'androidclient2'
         },
         {
           roomNo: 1002
