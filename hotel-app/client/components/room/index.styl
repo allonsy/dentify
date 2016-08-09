@@ -35,7 +35,7 @@ $checkedin-color = #E80C18
 
   .door-label
     transform: rotateX(-90deg)
-    transition: transform 1s ease
+    transition: transform 3s ease
     left: 50%
     top: 50%
     position: absolute
@@ -43,7 +43,26 @@ $checkedin-color = #E80C18
     z-index: 1
 
     &.selected
+      transition: transform 3s ease
       transform: translateZ(30px) rotateX(-90deg)
+    //   -webkit-animation-name: hover
+    //   -webkit-animation-duration: 2s
+    //   -webkit-animation-iteration-count: infinite
+    //   -webkit-animation-delay: 3s
+
+    //   animation-name: hover
+    //   animation-duration: 2s
+    //   animation-iteration-count: infinite
+    //   animation-delay: 3s
+
+    // @keyframes hover
+    //   0%
+    //     transform: translateZ(30px) rotateX(-90deg)
+    //   50%
+    //     transform: translateZ(20px) rotateX(-90deg)
+    //   100%
+    //     transform: translateZ(30px) rotateX(-90deg)
+
 
   svg
     width: 75px
