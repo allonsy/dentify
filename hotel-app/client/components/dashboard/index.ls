@@ -10,7 +10,7 @@ FloorPlan = react.createFactory require '../floor_plan'
 
 class DashBoard extends react.Component
 
-  xrot = 60
+  xrot = 50
   zrot = -45
   xtrans = 0
   ytrans = -1000
