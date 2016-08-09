@@ -10,7 +10,7 @@ module.exports =
         {
           roomNo: 1000
           status: 'booked'
-          user: 'gnuclient'
+          user: 'androidclient'
         },
         {
           roomNo: 1001

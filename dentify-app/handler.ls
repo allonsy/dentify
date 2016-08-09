@@ -57,7 +57,7 @@ module.exports =
         baseAmount = userRoom.amount
       userRoom.amount = baseAmount + json.amount
       shareDb.eventEmitter.emit 'update', shareDb
-      return {success: true, amount: userRoom.amount}
+      return {success: true, amount: json.amount}
 
     case 'CHECKOUT'
       userRoom = findRoom shareDb.floors, username
