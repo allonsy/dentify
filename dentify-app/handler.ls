@@ -38,7 +38,7 @@ module.exports =
       [floorNumber, userRoom] = findRoomAndFloor shareDb.floors, username
       if not userRoom?
         return {success: false, error: 'reservation for: ' + username + ' not found'}
-      else if userRoom.status isnt 'booked'
+      else if userRoom.status isnt 'booked' and userRoom.status isnt 'checked-in'
         return {success: false, error: username + ' already checked in!'}
       else
         userRoom.status = 'checked-in'
